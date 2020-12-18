@@ -6,6 +6,15 @@ import os
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+
+
+import zipfile
+with zipfile.ZipFile('./bin/headless-chromium.zip', 'r') as zip_ref:
+    zip_ref.extractall('./bin')
+
+
+
+
 app = Flask(__name__)
 
 @app.route("/")
