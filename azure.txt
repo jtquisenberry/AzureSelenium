@@ -1,0 +1,66 @@
+az webapp list
+... jquisenberry-hello ...
+
+E:
+E:\Development\Git\AzureSelenium
+
+
+az webapp up --sku F1 --name jquisenberry-hello
+az webapp up --logs
+
+
+
+
+ln -s /usr/lib/libnss3.so /usr/lib/libnss3.so.1d
+ln -s /usr/lib/libnssutil3.so /usr/lib/libnssutil3.so.1d
+ln -s /usr/lib/libsmime3.so /usr/lib/libsmime3.so.1d
+ln -s /usr/lib/libssl3.so /usr/lib/libssl3.so.1d
+ln -s /usr/lib/libplds4.so /usr/lib/libplds4.so.0d
+ln -s /usr/lib/libplc4.so /usr/lib/libplc4.so.0d
+ln -s /usr/lib/libnspr4.so /usr/lib/libnspr4.so.0d
+
+
+libnss3.so
+libnssutil3.so
+
+
+
+2020-12-19T02:59:59.706266406Z
+2020-12-19T02:59:59.706342610Z   _____
+2020-12-19T02:59:59.706349810Z   /  _  \ __________ _________   ____
+2020-12-19T02:59:59.706354811Z  /  /_\  \___   /  |  \_  __ \_/ __ \
+2020-12-19T02:59:59.706359511Z /    |    \/    /|  |  /|  | \/\  ___/
+2020-12-19T02:59:59.706363911Z \____|__  /_____ \____/ |__|    \___  >
+2020-12-19T02:59:59.706368211Z         \/      \/                  \/
+2020-12-19T02:59:59.706372411Z
+2020-12-19T02:59:59.706376212Z A P P   S E R V I C E   O N   L I N U X
+2020-12-19T02:59:59.706380212Z
+2020-12-19T02:59:59.706384012Z Documentation: http://aka.ms/webapp-linux
+2020-12-19T02:59:59.706393412Z Python 3.7.9
+2020-12-19T02:59:59.706397413Z Note: Any data outside '/home' is not persisted
+2020-12-19T03:00:00.231379001Z Starting OpenBSD Secure Shell server: sshd.
+2020-12-19T03:00:00.303570934Z App Command Line not configured, will attempt auto-detect
+2020-12-19T03:00:00.304491179Z Launching oryx with: create-script -appPath /home/site/wwwroot -output /opt/startup/startup.sh -virtualEnvName antenv -defaultApp /opt/defaultsite -bindPort 8000
+2020-12-19T03:00:00.731011454Z Found build manifest file at '/home/site/wwwroot/oryx-manifest.toml'. Deserializing it...
+2020-12-19T03:00:00.760576301Z Build Operation ID: |+SY9FzVHhgI=.a7b8e66_
+2020-12-19T03:00:00.761560849Z Oryx Version: 0.2.20201112.1, Commit: a120bb248aa8d208ca5e02d7d9d075196e79cffd, ReleaseTagName: 20201112.1
+2020-12-19T03:00:00.767862858Z Output is compressed. Extracting it...
+2020-12-19T03:00:00.781289715Z Extracting '/home/site/wwwroot/output.tar.gz' to directory '/tmp/8d8a3c9c0e71d60'...
+2020-12-19T03:00:18.257634330Z App path is set to '/tmp/8d8a3c9c0e71d60'
+2020-12-19T03:00:20.940171262Z Detected an app based on Flask
+2020-12-19T03:00:20.940194164Z Generating `gunicorn` command for 'app:app'
+2020-12-19T03:00:21.411386191Z Writing output script to '/opt/startup/startup.sh'
+2020-12-19T03:00:24.698683752Z Using packages from virtual environment antenv located at /tmp/8d8a3c9c0e71d60/antenv.
+2020-12-19T03:00:24.699521897Z Updated PYTHONPATH to ':/tmp/8d8a3c9c0e71d60/antenv/lib/python3.7/site-packages'
+2020-12-19T03:00:38.523533287Z [2020-12-19 03:00:38 +0000] [37] [INFO] Starting gunicorn 20.0.4
+2020-12-19T03:00:38.525366686Z [2020-12-19 03:00:38 +0000] [37] [INFO] Listening at: http://0.0.0.0:8000 (37)
+2020-12-19T03:00:38.526133727Z [2020-12-19 03:00:38 +0000] [37] [INFO] Using worker: sync
+2020-12-19T03:00:38.546090908Z [2020-12-19 03:00:38 +0000] [40] [INFO] Booting worker with pid: 40
+2020-12-19T03:00:42.417244353Z environ({'PLATFORM_VERSION': '91.0.7.112', 'HOSTNAME': '1a7e67a83661', 'WEBSITE_INSTANCE_ID': '19ea2bf160c3285c07bddcf400857c0e8dd83917a4385b1b10433a0745920885', 'SHLVL': '0', 'HOME': '/root', 'PORT': '8000', 'WEBSITE_RESOURCE_GROUP': 'jquisenberry_rg_linux_centralus', 'OLDPWD': '/home/site/wwwroot', 'ORYX_ENV_TYPE': 'AppService', 'DIAGNOSTIC_LOGS_MOUNT_PATH': '/var/log/diagnosticLogs', 'ScmType': 'None', 'PS1': '(antenv) # ', 'SCM_DO_BUILD_DURING_DEPLOYMENT': 'True', 'WEBSITE_HOSTNAME': 'jquisenberry-hello.azurewebsites.net', 'WEBSITE_STACK': 'PYTHON', 'ORYX_ENV_NAME': 'jquisenberry-hello', 'WEBSITE_ROLE_INSTANCE_ID': '0', 'WEBSITE_AUTH_ENCRYPTION_KEY': 'B7F49D4EE1B12E5A2CB020804BD07A0EB9E24A9D59261930F7D91DE826BF527D', 'HTTP_LOGGING_ENABLED': '1', 'WEBSITE_SITE_NAME': 'jquisenberry-hello', 'HOME_SITE': '/home/site/wwwroot', 'PATH': '/tmp/8d8a3c9c0e71d60/antenv/bin:/opt/python/3.7.9/bin:/opt/python/3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'APP_PATH': '/tmp/8d8a3c9c0e71d60', 'APPSETTING_WEBSITE_SITE_NAME': 'jquisenberry-hello', 'WEBSITE_AUTH_ENABLED': 'False', 'APPSETTING_WEBSITE_AUTH_ENABLED': 'False', 'HOST': '0.0.0.0', 'WEBSITE_OWNER_NAME': '2dce5286-bc87-4872-856f-b7695fb88e71+jquisenberry_rg_Linux_centralus-CentralUSwebspace', 'PYTHON_VERSION': '3.7', 'WEBSITE_HTTPLOGGING_RETENTION_DAYS': '3', 'VIRTUAL_ENV': '/tmp/8d8a3c9c0e71d60/antenv', 'PWD': '/tmp/8d8a3c9c0e71d60', 'COMPUTERNAME': 'lw1sdlwk00000L', 'APPSETTING_WEBSITE_HTTPLOGGING_RETENTION_DAYS': '3', 'APPSVC_RUN_ZIP': 'FALSE', 'GUNICORN_CMD_ARGS': "--timeout 600 --access-logfile '-' --error-logfile '-' --bind=0.0.0.0:8000 --chdir=/tmp/8d8a3c9c0e71d60", 'PYTHONPATH': ':/tmp/8d8a3c9c0e71d60/antenv/lib/python3.7/site-packages', 'SSH_PORT': '2222', 'APPSETTING_ScmType': 'None', 'ORYX_AI_INSTRUMENTATION_KEY': '4aadba6b-30c8-42db-9b93-024d5c62b887', 'WEBSITE_AUTH_SIGNING_KEY': '5CE4579EDAD14F30FB95B0ABE12550FE586A372F545B7D1894CA5556CCDC03D4', 'WEBSITE_SKU': 'LinuxFree', 'APPSETTING_SCM_DO_BUILD_DURING_DEPLOYMENT': 'True', 'LC_CTYPE': 'C.UTF-8', 'SERVER_SOFTWARE': 'gunicorn/20.0.4'})
+2020-12-19T03:00:42.425875776Z 172.16.0.1 - - [19/Dec/2020:03:00:42 +0000] "GET /robots933456.txt HTTP/1.1" 404 232 "-" "HealthCheck/1.0"
+
+
+
+
+
+

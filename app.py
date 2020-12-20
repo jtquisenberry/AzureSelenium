@@ -2,31 +2,55 @@ from flask import Flask
 import flask
 import selenium
 import sys
+import html
 import os
+import subprocess
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+if not os.path.exists('./bin/headless-chromium'):
+    print("UNPACKING headless-chromium")
+    import zipfile
+    with zipfile.ZipFile('./bin/headless-chromium.zip', 'r') as zip_ref:
+        zip_ref.extractall('./bin')
+else:
+    print("UNPACKED headless-chromium")
 
-import zipfile
-with zipfile.ZipFile('./bin/headless-chromium.zip', 'r') as zip_ref:
-    zip_ref.extractall('./bin')
-
-
+print(os.environ)
 
 
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    get_page()
-    return "Hello, World!" + ' ' + flask.__version__ + ' ' + selenium.__version__ + ' ' + sys.platform + ' ' + get_page()
+    return_value = get_page()
+    return return_value
+    #return "Hello, World!" + ' ' + flask.__version__ + ' ' + selenium.__version__ + ' ' + sys.platform + ' ' + get_page()
 
 
 def get_page():
-    print("XXXXXXXX")
+    print("START get_page()")
     print("HEADLESS", os.path.abspath('./bin/headless-chromium'))
     print("CHROMEDRIVER", os.path.abspath('./bin/chromedriver'))
+
+
+    # package_name = 'libnss3'
+    package_name = 'chromium'
+    devnull = open(os.devnull, "w")
+    retval = subprocess.call(["dpkg", "-s", package_name], stdout=devnull, stderr=subprocess.STDOUT)
+    print(retval)
+    if retval != 0:
+        print("Package {0} not installed.".format(package_name))
+        try:
+            subprocess.Popen('apt-get install -y {0}'.format(package_name), shell=True, stdin=None, stdout=None, stderr=None)
+        except Exception as e:
+            print("Package {0} is FAILED.".format(package_name))
+            pass
+    else:
+        print("Package {0} is installed.".format(package_name))
+
+
 
     options = Options()
     options.binary_location = './bin/headless-chromium'
@@ -38,20 +62,18 @@ def get_page():
     driver = webdriver.Chrome(executable_path='./bin/chromedriver', chrome_options=options)
 
     driver.get('https://www.google.com/')
-    source =  driver.page_source[:250]
-    print(source)
+    source =  driver.page_source
+    escaped_source = html.escape(source)
+    print(source[:300])
     with open(r'./abc.txt', encoding='utf-8') as f:
         text = f.read()
 
     driver.close()
     driver.quit()
 
-    return text
+    return '<html><body>{0}</body></html>'.format(escaped_source[:300])
 
 
 if __name__ == '__main__':
-    print('a')
-
-
-
+    print("__name__ == '__main__'")
     app.run('127.0.0.1', 5000)
